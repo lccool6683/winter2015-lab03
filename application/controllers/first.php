@@ -30,4 +30,30 @@ class first extends Application{
         $this->render();
     }
     
+    function zzz() {
+        $this->data['pagebody'] = 'justone';    // this is the view we want shown
+        // build the list of authors, to pass on to our view
+        $source = $this->quotes->first();
+        $who = $source['who'];
+        $what = $source['what'];
+        $mug = $source['mug'];
+        $this->data['who'] = $who;
+        $this->data['what'] = $what;
+        $this->data['mug'] = $mug;
+        $this->render();
+    }
+  
+     function gimme($id) {
+        $this->data['pagebody'] = 'justone';
+        $source = $this->quotes->get($id);
+        $who = $source['who'];
+        $what = $source['what'];
+        $mug = $source['mug'];
+        $this->data['who'] = $who;
+        $this->data['what'] = $what;
+        $this->data['mug'] = $mug;
+        $this->render(); 
+     }
+
+    
 }
